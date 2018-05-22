@@ -1,0 +1,31 @@
+;;;===================================================
+;;;
+;;; OM-pm2
+;;; pm2 additive analysis/synthesis in OM/o7
+;;;
+;;; Requires perliminary installation of pm2 (also included in AudioSculpt)
+;;; Set pm2 path in OM preferences (externals) once the library is loaded.
+;;;
+;;;
+;;; LIBRARY MAIN FILE
+;;;
+;;;===================================================
+
+(:om-lib 
+ (:version 1.4)
+ (:doc "pm2 additive analysis/synthesis in OpenMusic")
+ (:author "J. Bresson (2006-2016)")
+ (:source-files 
+  (:pathname (:directory (:relative "sources")) (:name "package"))
+  (:pathname (:directory (:relative "sources")) (:name "pm2-additive"))
+  (:pathname (:directory (:relative "sources")) (:name "pm2-preferences")))
+ (:symbols
+  (:packages 
+   (:package 
+    (:name "Analysis")
+    (:functions partial-tracking chord-seq-analysis pm2-f0))
+   (:package 
+    (:name "Synthesis")
+    (:functions pm2-add-synth))
+   ))
+ )
