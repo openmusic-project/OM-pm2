@@ -1,6 +1,6 @@
 ;============================================================================
 ; OM-pm2
-; pm2 sound analysis and synthesis for o7
+; pm2 sound analysis and synthesis for om7
 ;============================================================================
 ;
 ;   This program is free software. For information on usage 
@@ -13,7 +13,7 @@
 ;============================================================================
 ; PM2 Additive Sound Analysis/Systhesis
 ; Author: Jean Bresson - IRCAM 2005
-; update o7 2016 
+; update om7 2016 
 ;============================================================================
 
 (in-package :om-pm2-lib)

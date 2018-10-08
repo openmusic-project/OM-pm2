@@ -1,7 +1,7 @@
 ;;;===================================================
 ;;;
 ;;; OM-pm2
-;;; pm2 additive analysis/synthesis in OM/o7
+;;; pm2 additive analysis/synthesis in om7
 ;;;
 ;;; Requires perliminary installation of pm2 (also included in AudioSculpt)
 ;;; Set pm2 path in OM preferences (externals) once the library is loaded.

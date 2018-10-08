@@ -1,6 +1,6 @@
 ;============================================================================
 ; OM-pm2
-; pm2 sound analysis and synthesis for o7
+; pm2 sound analysis and synthesis for om7
 ;============================================================================
 ;
 ;   This program is free software. For information on usage 
