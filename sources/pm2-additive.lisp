@@ -1,6 +1,6 @@
 ;============================================================================
 ; OM-pm2
-; pm2 sound analysis and synthesis for om7
+; pm2 sound analysis and synthesis in OM
 ;============================================================================
 ;
 ;   This program is free software. For information on usage 
@@ -13,7 +13,7 @@
 ;============================================================================
 ; PM2 Additive Sound Analysis/Systhesis
 ; Author: Jean Bresson - IRCAM 2005
-; update om7 2016 
+; update OM6/om7 2016-2018 
 ;============================================================================
 
 (in-package :om-pm2-lib)
@@ -110,7 +110,7 @@ fad:  Fade Harmonics
                                  (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning") 
                                  (smoothing-enveloppe  '(0.0 0.0))
                                  (out "partials.sdif"))
-  (let ((PM2-path (om::real-exec-pathname (om::get-pref-value :libraries :pm2-path))))
+  (let ((PM2-path (om::pm2-path)))
     (if (and PM2-path (probe-file PM2-path))
 
         (let ((outname (if out 
@@ -237,7 +237,7 @@ fad:  Fade Harmonics
                                    (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
                                    (out "chordseqs.sdif"))
               
-  (let ((PM2-path (om::real-exec-pathname (om::get-pref-value :libraries :pm2-path))))
+  (let ((PM2-path (om::pm2-path)))
     (if (and PM2-path (probe-file PM2-path))
         (let ((outname (if out 
                            (if (pathnamep out) out (om::outfile out))
@@ -335,7 +335,7 @@ fad:  Fade Harmonics
                    (fund-minfreq 100) (fund-maxfreq 300) (spectrum-maxfreq 3000)
                    (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
                    (out "f0.sdif"))
-  (let ((PM2-path (om::real-exec-pathname (om::get-pref-value :libraries :pm2-path))))
+  (let ((PM2-path (om::pm2-path)))
     (if (and PM2-path (probe-file PM2-path))    
         (let ((outname (if out 
                            (if (pathnamep out) out (om::outfile out))
@@ -357,10 +357,10 @@ fad:  Fade Harmonics
                    (cmd (format nil "~s -Af0 ~A -S~s ~A ~A ~A ~s" 
                                 (namestring PM2-Path)
                                 f0params
-                                (om-path2cmdpath self)
+                                (namestring self)
                                 beginstr endstr
                                 fftstr  
-                                (om-path2cmdpath outname)))
+                                (namestring outname)))
                    )
               (om::om-print cmd "PM2")
               (om::om-cmd-line cmd)
@@ -404,7 +404,7 @@ fad:  Fade Harmonics
 (defmethod pm2-synthesis ((partiels string) &key (attack 0.01) (release 0.01) (sr 44100) 
                           (res 16) (out "pm2-out.aiff") nchannels)
   ;;;./pm2 -Asyn -R44100 -Stest.sdif out.aiff
- (let ((PM2-path (om::real-exec-pathname (om::get-pref-value :libraries :pm2-path))))
+ (let ((PM2-path (om::pm2-path)))
     (if (and PM2-path (probe-file PM2-path))    
         (let ((outname (if out
                          (if (pathname-directory (pathname out)) out (om::outfile out))
@@ -447,200 +447,23 @@ fad:  Fade Harmonics
 (defmethod pm2-synthesis ((partiels om::chord-seq) &key (attack 0.01) (release 0.01) (sr 44100) 
                           (res 16) (out "pm2-out.aiff") nchannels)
   (let* ((sdiftmp (om::tmpfile "chords.sdif"))
-         (sdiffile (om::chordseq->sdif partiels sdiftmp)))
+         (sdiffile (om::chord-seq->sdif partiels sdiftmp)))
     (when sdiffile
       (om::add-tmp-file sdiftmp)
       (pm2-synthesis sdiffile :attack attack :release release :sr sr :res res :out out :nchannels nchannels)
       )))
 
 
-;;;================================================================================================================
-;;;================================================================================================================
-;;; OM FUNCTIONS
-
-(in-package :om)
-
-;;;================================================================================================================
-;;;================================================================================================================
-
-(defmethod! partial-tracking ((sound t) &key
-                              begin-t end-t
-                              (max-partials 12) (amp-treshold -40)
-                              (analysis-type "inharmonic") 
-                              (analysis-params '(20 0.0 50 1 3 0.017 50 0.009))
-                              (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning") 
-                              (smoothing-enveloppe  '(0.0 0.0))
-                              (out "partials.sdif"))
-  :initvals '(nil nil nil 12 -40 "inharmonic" (20 0.0 50 1 3 0.017 50 0.009) 4096 4096 256 "hanning" (0.0 0.0) "partials.sdif")
-  :menuins (list
-            (list 5 '(("Harmonic" "harmonic") ("Inharmonic" "inharmonic")))
-            (list 10 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
-  :icon 'pm2-partials
-  :doc "Tracks sinusoidal partial in an audio file and returns an SDIF sound description file.
-
-- FileName : the pathname of the sound file (Aiff) to be analysed
-
-- begin-t : begin time of analysis (s)
-
-- end-t : end time of analysis (s)
-
-- max-partials : the maximum number of simultaneous partials
-
-- amp-treshold : Amplitude treshold of analysis (-120 -> 0 dB)
-
-- analysis-type : type of analysis (harmonic or inharmonic).
-
-- analysis-params : parameters for tracking                 
-                    - for inharmonic partial tracking : 
-                           - Relative frequency derivation (mc) (default 20)
-                           - Constant frequency derivation (Hz) (default 0.0)
-                           - Relative amplitude derivation (%) (default 50)
-                           - Source partial neighbors (default 1)
-                           - target partial neighbors (>= source partial neighbors) (default 3)
-                           - time gap to connect over (s) (default 0.017)
-                           - frequency gap to connect over (mc) (default 50)
-                           - minimum partial length (s) (default 0.009)
-                    - for harmonic partial tracking : an SDIF f0 analysis file (automatically generated if nil)
-
-- windowsize : the number of samples of the analysis window
-
-- fftsize : the number of points of fft
-
-- step : the number of samples between two successive analysis windows
-
-- windowtype : the shape of the analysis window
-
-- smoothing-enveloppe : smoothing enveloppe attack and release times (s) (default '(0.0 0.0))
-
-"
-  (om-pm2-lib::pm2-partial-tracking sound 
-                                    :begin-t begin-t :end-t end-t
-                                    :max-partials max-partials :amp-treshold amp-treshold
-                                    :analysis-type analysis-type :analysis-params analysis-params
-                                    :windowsize windowsize :fftsize fftsize :step step :windowtype windowtype :smoothing-enveloppe smoothing-enveloppe 
-                                    :out out))
+(defmethod pm2-synthesis ((partiels list) &key (attack 0.01) (release 0.01) (sr 44100) 
+                          (res 16) (out "pm2-out.aiff") nchannels)
+  (let* ((sdiftmp (om::tmpfile "chords.sdif"))
+         (sdiffile (om::write-sdif-file partiels :outpath sdiftmp)))
+    (when sdiffile
+      (om::add-tmp-file sdiftmp)
+      (pm2-synthesis sdiffile :attack attack :release release :sr sr :res res :out out :nchannels nchannels)
+      )))
 
 
-;;;================================================================================================================
-;;;================================================================================================================
-
-(defmethod! chord-seq-analysis ((sound t) &key
-                                      begin-t end-t
-                                      markers
-                                      (max-partials 12) (amp-treshold -40)
-                                      (analysis-type "averaged-spectrum")
-                                      (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
-                                      (out "chordseqs.sdif"))
-            :initvals '(nil nil nil nil 12 -40 "averaged-spectrum" 4096 4096 256 "hanning" "chordseqs.sdif")
-            :menuins (list
-                      (list 6 '(("Averaged Spectrum" "averaged-spectrum") ("Inharmonic Partial Averaging" "inharmonic-partial-averaging")))
-                      (list 10 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
-            :icon 'pm2-cseq
-            :doc "Tracks sinusoidal chords in an audio file and returns an SDIF sound description file.
-
-- FileName : the pathname of the sound file (Aiff) to be analysed
-
-- begin-t : begin time of analysis (s)
-
-- end-t : end time of analysis (s)
-
-- markers : markers for analysis (text file). If nil, markers of filename are used.
-
-- max-partials : the maximum number of simultaneous partials
-
-- amp-treshold : Amplitude treshold of analysis (-120 -> 0 dB)
-
-- analysis-type : type of analysis ('averaged-spectrum or 'inharmonic-partial-averaging).
-                  for inharmonic partial averaging, connect partial connection parameters if needed : 
-                           - Relative frequency derivation (mc)
-                           - Constant frequency derivation (Hz)
-                           - Relative amplitude derivation (%)
-                           - Source partial neighbors
-                           - Target partial neighbors (>= source partial neighbors)
-                           - Time gap to connect over (s)
-                           - Frequency gap to connect over (mc)
-                           - Minimum partial fragment length (s)
-                           - Relative Min. partial length [0.0-1.0]
-
-- windowsize : the number of samples of the analysis window
-
-- fftsize : the number of points of fft
-
-- step : the number of samples between two successive analysis windows
-
-- windowtype : the shape of the analysis window
-
-"
-
-            (om-pm2-lib::pm2-chord-seq-analysis sound :begin-t begin-t :end-t end-t
-                                               :markers markers
-                                               :max-partials max-partials :amp-treshold amp-treshold
-                                               :analysis-type analysis-type
-                                               :windowsize windowsize :fftsize fftsize :step step :windowtype windowtype 
-                                               :out out))
 
 
-;;;================================================================================================================
-;;;================================================================================================================
 
-(defmethod! pm2-f0 ((sound t) &key
-                    begin-t end-t
-                    (fund-minfreq 100) (fund-maxfreq 300) (spectrum-maxfreq 3000)
-                    (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
-                    (out "f0.sdif"))
-            :initvals '(nil nil nil 100 300 3000 4096 4096 256 "hanning" "f0.sdif")
-            :menuins (list
-                      (list 5 '(("Harmonic" "harmonic") ("Inharmonic" "inharmonic")))
-                      (list 10 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
-            :icon 'pm2-f0
-            :doc "Fundamental frequency estimation.
-
-- FileName : the pathname of the sound file (Aiff) to be analysed
-
-- begin-t : begin time of analysis (s)
-
-- end-t : end time of analysis (s)
-
-- fund-minfreq : min F0 
-
-- fund-maxfreq : max F0  
-
-- spectrum-maxfreq : max analysis frequency
-
-- windowsize : the number of samples of the analysis window
-
-- fftsize : the number of points of fft
-
-- step : the number of samples between two successive analysis windows
-
-- windowtype : the shape of the analysis window
-
-- smoothing-enveloppe : smoothing enveloppe attack and release times (s) (default '(0.0 0.0))
-
-"
-
-            (om-pm2-lib::pm2-f0 sound
-                                :begin-t begin-t :end-t end-t
-                                :fund-minfreq fund-minfreq :fund-maxfreq fund-maxfreq :spectrum-maxfreq spectrum-maxfreq
-                                :windowsize windowsize :fftsize fftsize :step step :windowtype windowtype 
-                                :out out))
-
-;;;================================================================================================================
-;;;================================================================================================================
-
-(defmethod! pm2-add-synth ((partiels t) &key
-                           (attack 0.01) (release 0.01)
-                           (sr 44100) (res 16) (out "pm2-out.aiff"))
-  :initvals '(nil 0.01 0.01 44100 16 "pm2-out.aiff")
-  :indoc '("partials" "partials attack time (s)" "partials release time (s)" "sample rate" "resolution" "output pathname")
-  :icon 'pm2-synth
-  :doc "Realizes additive synthesis using pm2.
-
-The input is a simple list of partials provided as an SDIFFILE or SDIF-BUFFER with 1MRK/1TRC frames.
-
-CHORD-SEQ can also be connected and are iternally converted to an SDIF file as well.
-"
-  (om-pm2-lib::pm2-synthesis partiels :attack attack :release release :sr sr :res res :out out))
-
-;;;================================================================================================================
-;;;================================================================================================================

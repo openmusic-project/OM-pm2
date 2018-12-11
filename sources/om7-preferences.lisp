@@ -33,6 +33,9 @@
 (add-preference :libraries :pm2-path "Pm2 exec" :file 'default-pm2-path) 
 (add-preference :libraries :pm2-authorize "Authorize" :action 'authorize-pm2)
 
+;;; redefined form OM6/om7
+(defun pm2-path () (om::real-exec-pathname (om::get-pref-value :libraries :pm2-path)))
+
 ;;; works for pm2...
 (defun forum-authorize (exe-path)
   (if exe-path
