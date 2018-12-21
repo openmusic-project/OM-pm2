@@ -28,9 +28,6 @@
 
 (unless (fboundp 'om::set-lib-release) (defmethod om::set-lib-release (version &optional lib) nil))
 
-;;; compat tools (the code in the lib is adapted for om6/7
-(defmethod om::file-pathname ((self om::sound)) (om::filename self))
-
 
 (om::set-lib-release 1.5)
 

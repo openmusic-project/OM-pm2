@@ -16,6 +16,7 @@
 ; update OM6/om7 2016-2018 
 ;============================================================================
 
+
 (in-package :om-pm2-lib)
 
 #|
@@ -103,6 +104,11 @@ fad:  Fade Harmonics
 ;;;-Os -p0 -q15 -m68.0 -a0.02 -r0.03 -Ct0.017 -Cf0.029 --devFR=0.012 --devFC=0.1 --devA=0.51 --devM=5 --devK=5 -L0.009  
 ;;;"/Applications/AudioSculpt 2.4.2/Partials/temppart-LbBy.trc.sdif"
 
+
+;;; compat om6/7
+#-om7
+(defmethod om::file-pathname ((self om::sdiffile)) (filepathname self))
+
 (defmethod pm2-partial-tracking ((sound string) &key
                                  begin-t end-t
                                  (max-partials 12) (amp-treshold -40)
@@ -183,8 +189,8 @@ fad:  Fade Harmonics
                                 (analysis-type "inharmonic") (analysis-params '(20 0.0 50 1 3 0.017 50 0.009))
                                 (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning") (smoothing-enveloppe  '(0.0 0.0))
                                 (out "partials.sdif"))
-  (if (om::file-pathname sound)
-      (pm2-partial-tracking (om::file-pathname sound) 
+  (if (om::om-sound-file-name sound)
+      (pm2-partial-tracking (om::om-sound-file-name sound) 
                             :begin-t begin-t :end-t end-t
                             :max-partials max-partials :amp-treshold amp-treshold
                             :analysis-type analysis-type :analysis-params analysis-params
@@ -313,8 +319,8 @@ fad:  Fade Harmonics
                          (let ((f (make-pm2-chord-file self)))
                            (om::add-tmp-file f)
                            f))))
-    (if (om::file-pathname self)
-        (pm2-chord-seq-analysis (om::file-pathname self) 
+    (if (om::om-sound-file-name self)
+        (pm2-chord-seq-analysis (om::om-sound-file-name self) 
                                 :begin-t begin-t :end-t end-t
                                 :markers markers-file
                                 :max-partials max-partials :amp-treshold amp-treshold
@@ -387,8 +393,8 @@ fad:  Fade Harmonics
                    (fund-minfreq 100) (fund-maxfreq 300) (spectrum-maxfreq 3000)
                    (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
                    (out "f0.sdif"))
-  (if (om::file-pathname self)
-      (pm2-f0 (om::file-pathname self)  
+  (if (om::om-sound-file-name self)
+      (pm2-f0 (om::om-sound-file-name self)  
               :begin-t begin-t :end-t end-t
               :fund-minfreq fund-minfreq :fund-maxfreq fund-maxfreq :spectrum-maxfreq spectrum-maxfreq
               :windowsize windowsize :fftsize fftsize :step step :windowtype windowtype 
