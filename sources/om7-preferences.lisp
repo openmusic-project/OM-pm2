@@ -10,7 +10,10 @@
 ;   but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 ;
-;============================================================================;;;================================================================================================================
+;============================================================================
+
+
+;================================================================================================================
 ; PM2 Preferences
 ; Author: Jean Bresson - IRCAM 2016 
 ;================================================================================================================
@@ -29,12 +32,12 @@
                       :host (pathname-host libpath) :device (pathname-device libpath)
                       :name "pm2" #+win32 :type #+win32 "exe")))
 
-(add-preference-section :libraries "om-pm2" nil '(:pm2-path :pm2-authorize))
-(add-preference :libraries :pm2-path "Pm2 exec" :file 'default-pm2-path) 
-(add-preference :libraries :pm2-authorize "Authorize" :action 'authorize-pm2)
+(add-preference-section :externals "om-pm2" nil '(:pm2-path :pm2-authorize))
+(add-preference :externals :pm2-path "Pm2 exec" :file 'default-pm2-path)
+(add-preference :externals :pm2-authorize "Authorize" :action 'authorize-pm2)
 
 ;;; redefined form OM6/om7
-(defun pm2-path () (om::real-exec-pathname (om::get-pref-value :libraries :pm2-path)))
+(defun pm2-path () (om::real-exec-pathname (om::get-pref-value :externals :pm2-path)))
 
 ;;; works for pm2...
 (defun forum-authorize (exe-path)
@@ -49,4 +52,6 @@
   ))
 
 (defmethod! authorize-pm2 ()
-   (forum-authorize (get-pref-value :libraries :pm2-path)))
+   (forum-authorize (get-pref-value :externals :pm2-path)))
+
+
