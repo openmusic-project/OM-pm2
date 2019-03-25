@@ -106,8 +106,8 @@ fad:  Fade Harmonics
 
 
 ;;; compat om6/7
-#-om7
-(defmethod om::file-pathname ((self om::sdiffile)) (filepathname self))
+#-om7 (defmethod om::file-pathname ((self om::sdiffile)) (om::filepathname self))
+#-om7 (defmethod om::file-map ((self om::sdiffile)) (om::streamsdesc self))
 
 (defmethod pm2-partial-tracking ((sound string) &key
                                  begin-t end-t
@@ -166,7 +166,7 @@ fad:  Fade Harmonics
               (om::om-print cmd "PM2")
               (om::om-cmd-line cmd)
               (om::maybe-clean-tmp-files)
-              outname)))
+              (probe-file outname))))
       (om::om-beep-msg "PM2 not found! Set path to pm2 in the OM preferences."))))
 
 
@@ -433,7 +433,7 @@ fad:  Fade Harmonics
             (om::om-print cmd "PM2")
             (om::om-cmd-line cmd)
             (om::maybe-clean-tmp-files)
-            outname)))
+            (probe-file outname))))
     (progn
       (om::maybe-clean-tmp-files)
       (om-beep-msg "PM2 not found! Set path to pm2 in the OM preferences.")))))
