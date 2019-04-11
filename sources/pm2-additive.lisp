@@ -407,8 +407,9 @@ fad:  Fade Harmonics
 ;;; PM2 SYNTHESIS
 ;;;================================================================================================================
 
+
 (defmethod pm2-synthesis ((partiels string) &key (attack 0.01) (release 0.01) (sr 44100) 
-                          (res 16) (out "pm2-out.aiff") nchannels)
+                          (res 16) (out "pm2-out.aiff") nchannels sub-from)
   ;;;./pm2 -Asyn -R44100 -Stest.sdif out.aiff
  (let ((PM2-path (om::pm2-path)))
     (if (and PM2-path (probe-file PM2-path))    
@@ -420,10 +421,12 @@ fad:  Fade Harmonics
           (setf outname (om::handle-new-file-exists outname)) 
           (setf *last-saved-dir* (make-pathname :directory (pathname-directory outname)))
           (let* ((unix-outname (namestring outname))
-                 (cmd (format nil "~s -Asyn -S~s ~A -a~D -r~D -R~D -Osa~D ~s" 
+                 (cmd (format nil "~s -Asyn -S~s ~A ~A -a~D -r~D -R~D -Osa~D ~s" 
                               (namestring PM2-path)
                               (namestring partiels)
                               (if nchannels (format nil "--numchannels=~D" nchannels) "")
+                              ;;; substract from sound (= get residual)
+                              (if sub-from (format nil "-p1 --mixfac=-1 --mixto=~s" (namestring (om::get-sound-file sub-from))) "")
                               attack
                               release
                               sr
@@ -440,33 +443,39 @@ fad:  Fade Harmonics
 
 
 (defmethod pm2-synthesis ((partiels pathname) &key (attack 0.01) (release 0.01) (sr 44100) 
-                          (res 16) (out "pm2-out.aiff") nchannels)
-  (pm2-synthesis (namestring partiels) :attack attack :release release :sr sr :res res :out out :nchannels nchannels))
+                          (res 16) (out "pm2-out.aiff") nchannels sub-from)
+  (pm2-synthesis (namestring partiels) :attack attack :release release :sr sr :res res :out out 
+                 :nchannels nchannels :sub-from sub-from))
 
 
 (defmethod pm2-synthesis ((partiels om::sdiffile) &key (attack 0.01) (release 0.01) (sr 44100) 
-                          (res 16) (out "pm2-out.aiff") nchannels)
+                          (res 16) (out "pm2-out.aiff") nchannels sub-from)
   (pm2-synthesis (om::file-pathname partiels) :attack attack :release release :sr sr :res res :out out
-                 :nchannels (length (om::file-map partiels))))
+                 :nchannels (length (om::file-map partiels))
+                 :sub-from sub-from))
 
 
 (defmethod pm2-synthesis ((partiels om::chord-seq) &key (attack 0.01) (release 0.01) (sr 44100) 
-                          (res 16) (out "pm2-out.aiff") nchannels)
+                          (res 16) (out "pm2-out.aiff") nchannels sub-from)
   (let* ((sdiftmp (om::tmpfile "chords.sdif"))
          (sdiffile (om::chord-seq->sdif partiels sdiftmp)))
     (when sdiffile
       (om::add-tmp-file sdiftmp)
-      (pm2-synthesis sdiffile :attack attack :release release :sr sr :res res :out out :nchannels nchannels)
+      (pm2-synthesis sdiffile :attack attack :release release :sr sr :res res :out out 
+                     :nchannels nchannels
+                      :sub-from sub-from)
       )))
 
 
 (defmethod pm2-synthesis ((partiels list) &key (attack 0.01) (release 0.01) (sr 44100) 
-                          (res 16) (out "pm2-out.aiff") nchannels)
+                          (res 16) (out "pm2-out.aiff") nchannels sub-from)
   (let* ((sdiftmp (om::tmpfile "chords.sdif"))
          (sdiffile (om::write-sdif-file partiels :outpath sdiftmp)))
     (when sdiffile
       (om::add-tmp-file sdiftmp)
-      (pm2-synthesis sdiffile :attack attack :release release :sr sr :res res :out out :nchannels nchannels)
+      (pm2-synthesis sdiffile :attack attack :release release :sr sr :res res :out out 
+                     :nchannels nchannels
+                     :sub-from sub-from)
       )))
 
 

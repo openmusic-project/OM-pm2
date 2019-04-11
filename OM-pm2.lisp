@@ -22,18 +22,18 @@
 
   (om::fill-library 
  '(("Analysis" nil nil (partial-tracking chord-seq-analysis pm2-f0) nil)
-   ("Synthesis" nil nil (pm2-add-synth) nil)
+   ("Synthesis" nil nil (pm2-add-synth pm2-subtract) nil)
    ))
 
 
 (unless (fboundp 'om::set-lib-release) (defmethod om::set-lib-release (version &optional lib) nil))
 
 
-(om::set-lib-release 1.5)
+(om::set-lib-release 1.6)
 
 (print "
 ;;;===========================================================================
-;;; OM-pm2 1.5
+;;; OM-pm2 1.6
 ;;; pm2 additive analysis/synthesis in OpenMusic
 ;;;
 ;;; (c) IRCAM 2006-2018

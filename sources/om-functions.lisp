@@ -190,7 +190,7 @@
 ;;;================================================================================================================
 ;;;================================================================================================================
 
-(defmethod! pm2-add-synth ((partiels t) &key
+(defmethod! pm2-add-synth ((partials t) &key
                            (attack 0.01) (release 0.01)
                            (sr 44100) (res 16) (out "pm2-out.aiff"))
   :initvals '(nil 0.01 0.01 44100 16 "pm2-out.aiff")
@@ -202,7 +202,25 @@ The input is a simple list of partials provided as an SDIFFILE or SDIF-BUFFER wi
 
 CHORD-SEQ can also be connected and are iternally converted to an SDIF file as well.
 "
-  (om-pm2-lib::pm2-synthesis partiels :attack attack :release release :sr sr :res res :out out))
+  (om-pm2-lib::pm2-synthesis partials :attack attack :release release :sr sr :res res :out out))
 
 ;;;================================================================================================================
 ;;;================================================================================================================
+
+(defmethod! pm2-subtract (sound partials &key
+                                (attack 0.01) (release 0.01)
+                                (sr 44100) (res 16) (out "pm2-out.aiff"))
+  :initvals '(nil nil 0.01 0.01 44100 16 "pm2-out.aiff")
+  :indoc '("partials" "original sound" 
+           "partials attack time (s)" "partials release time (s)" "sample rate" "resolution" "output pathname")
+  :icon :pm2-synth
+  :doc "Returns residual from <sound> removing <partials> using pm2.
+
+<sound> is aSOUND object or a pathname.
+
+<partials> is a list of partials provided as an SDIFFILE or SDIF-BUFFER with 1MRK/1TRC frames.
+A CHORD-SEQ can also be connected and will iternally be converted to an SDIF file.
+"
+  (om-pm2-lib::pm2-synthesis partials :attack attack :release release :sr sr :res res :out out :sub-from sound))
+
+

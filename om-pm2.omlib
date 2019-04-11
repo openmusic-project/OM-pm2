@@ -12,7 +12,7 @@
 ;;;===================================================
 
 (:om-lib 
- (:version 1.5)
+ (:version 1.6)
  (:doc "pm2 additive analysis/synthesis in OpenMusic")
  (:author "J. Bresson (2006-2018)")
  (:source-files 
@@ -27,6 +27,6 @@
     (:functions partial-tracking chord-seq-analysis pm2-f0))
    (:package 
     (:name "Synthesis")
-    (:functions pm2-add-synth))
+    (:functions pm2-add-synth pm2-subtract))
    ))
  )
