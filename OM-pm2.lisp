@@ -15,12 +15,13 @@
 
 (in-package :om)
 
-(compile&load (namestring (om-relative-path '("sources") "package")))
-(compile&load (namestring (om-relative-path '("sources") "pm2-additive")))
-(compile&load (namestring (om-relative-path '("sources") "om-functions")))
-(compile&load (namestring (om-relative-path '("sources") "om6-preferences")))
+(compile&load (namestring (om-relative-path '("sources") "package")) t t)
+(compile&load (namestring (om-relative-path '("sources") "pm2-additive")) t t)
+(compile&load (namestring (om-relative-path '("sources") "om-functions")) t t)
+(compile&load (namestring (om-relative-path '("sources") "om6-preferences")) t t)
 
-  (om::fill-library 
+
+(om::fill-library 
  '(("Analysis" nil nil (partial-tracking chord-seq-analysis pm2-f0) nil)
    ("Synthesis" nil nil (pm2-add-synth pm2-subtract) nil)
    ))
