@@ -152,8 +152,7 @@
                     (out "f0.sdif"))
             :initvals '(nil nil nil 100 300 3000 4096 4096 256 "hanning" "f0.sdif")
             :menuins (list
-                      (list 5 '(("Harmonic" "harmonic") ("Inharmonic" "inharmonic")))
-                      (list 10 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
+                      (list 9 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
             :icon :pm2-f0
             :doc "Fundamental frequency estimation.
 
