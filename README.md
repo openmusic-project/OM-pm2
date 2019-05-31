@@ -9,7 +9,7 @@ pm2 is developed and distributed by IRCAM - Analysis/Synthesis team
 *************
 This program is free software. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 
-_This library does NOT include pm2 sources or binaries, which must be installed separately and located in the SuperVP section of OM Preferences/Libraries tab._
+_This library does NOT include pm2 sources or binaries, which must be installed separately and located in the pm2 section of OM Preferences/Libraries tab._
 
 *************
 
