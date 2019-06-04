@@ -228,7 +228,13 @@ fad:  Fade Harmonics
   
 (defmethod make-pm2-chord-file ((self om::sound) &optional (outfile "tmpchords"))
   (let ((file (if (pathnamep outfile) outfile (om::tmpfile outfile)))
-        (mrk (if (om::markers self) (om::markers self) (list 0.0))))
+        (mrk (if (om::markers self) 
+                 (if (find-if #'floatp (om::markers self)) 
+                     ;;; we're already in seconds
+                     (om::markers self)
+                   ;;; else, we're most likely in milliseconds
+                   (om::ms->sec (om::markers self)))
+               (list 0.0))))
     (make-pm2-chord-file (append mrk (list (om::sound-dur self))) file)))
 
 (defun trunc (val n) 

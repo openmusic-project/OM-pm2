@@ -87,18 +87,18 @@
 ;;;================================================================================================================
 
 (defmethod! chord-seq-analysis ((sound t) &key
-                                      begin-t end-t
-                                      markers
-                                      (max-partials 12) (amp-treshold -40)
-                                      (analysis-type "averaged-spectrum")
-                                      (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
-                                      (out "chordseqs.sdif"))
-            :initvals '(nil nil nil nil 12 -40 "averaged-spectrum" 4096 4096 256 "hanning" "chordseqs.sdif")
-            :menuins (list
-                      (list 6 '(("Averaged Spectrum" "averaged-spectrum") ("Inharmonic Partial Averaging" "inharmonic-partial-averaging")))
-                      (list 10 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
-            :icon :pm2-cseq
-            :doc "Tracks sinusoidal chords in an audio file and returns an SDIF sound description file.
+                                begin-t end-t
+                                markers
+                                (max-partials 12) (amp-treshold -40)
+                                (analysis-type "averaged-spectrum")
+                                (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
+                                (out "chordseqs.sdif"))
+  :initvals '(nil nil nil nil 12 -40 "averaged-spectrum" 4096 4096 256 "hanning" "chordseqs.sdif")
+  :menuins (list
+            (list 6 '(("Averaged Spectrum" "averaged-spectrum") ("Inharmonic Partial Averaging" "inharmonic-partial-averaging")))
+            (list 10 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
+  :icon :pm2-cseq
+  :doc "Tracks sinusoidal chords in an audio file and returns an SDIF sound description file.
 
 - FileName : the pathname of the sound file (Aiff) to be analysed
 
@@ -134,12 +134,12 @@
 
 "
 
-            (om-pm2-lib::pm2-chord-seq-analysis sound :begin-t begin-t :end-t end-t
-                                               :markers markers
-                                               :max-partials max-partials :amp-treshold amp-treshold
-                                               :analysis-type analysis-type
-                                               :windowsize windowsize :fftsize fftsize :step step :windowtype windowtype 
-                                               :out out))
+  (om-pm2-lib::pm2-chord-seq-analysis sound :begin-t begin-t :end-t end-t
+                                      :markers markers
+                                      :max-partials max-partials :amp-treshold amp-treshold
+                                      :analysis-type analysis-type
+                                      :windowsize windowsize :fftsize fftsize :step step :windowtype windowtype 
+                                      :out out))
 
 
 ;;;================================================================================================================
