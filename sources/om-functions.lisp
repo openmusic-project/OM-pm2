@@ -33,11 +33,10 @@
                               (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning") 
                               (smoothing-enveloppe  '(0.0 0.0))
                               (out "partials.sdif"))
-  :initvals '(nil nil nil 12 -40 "inharmonic" (20 0.0 50 1 3 0.017 50 0.009) 4096 4096 256 "hanning" (0.0 0.0) "partials.sdif")
-  :menuins (list
-            (list 5 '(("Harmonic" "harmonic") ("Inharmonic" "inharmonic")))
-            (list 10 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
   :icon :pm2-partials
+  :initvals '(nil nil nil 12 -40 "inharmonic" (20 0.0 50 1 3 0.017 50 0.009) 4096 4096 256 "hanning" (0.0 0.0) "partials.sdif")
+  :menuins '((5 (("Harmonic" "harmonic") ("Inharmonic" "inharmonic")))
+             (10 (("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
   :doc "Tracks sinusoidal partial in an audio file and returns an SDIF sound description file.
 
 - FileName : the pathname of the sound file (Aiff) to be analysed
@@ -79,7 +78,8 @@
                                     :begin-t begin-t :end-t end-t
                                     :max-partials max-partials :amp-treshold amp-treshold
                                     :analysis-type analysis-type :analysis-params analysis-params
-                                    :windowsize windowsize :fftsize fftsize :step step :windowtype windowtype :smoothing-enveloppe smoothing-enveloppe 
+                                    :windowsize windowsize :fftsize fftsize :step step :windowtype windowtype 
+                                    :smoothing-enveloppe smoothing-enveloppe 
                                     :out out))
 
 
@@ -94,9 +94,8 @@
                                 (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
                                 (out "chordseqs.sdif"))
   :initvals '(nil nil nil nil 12 -40 "averaged-spectrum" 4096 4096 256 "hanning" "chordseqs.sdif")
-  :menuins (list
-            (list 6 '(("Averaged Spectrum" "averaged-spectrum") ("Inharmonic Partial Averaging" "inharmonic-partial-averaging")))
-            (list 10 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
+  :menuins '((6 (("Averaged Spectrum" "averaged-spectrum") ("Inharmonic Partial Averaging" "inharmonic-partial-averaging")))
+             (10 (("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
   :icon :pm2-cseq
   :doc "Tracks sinusoidal chords in an audio file and returns an SDIF sound description file.
 
@@ -151,8 +150,7 @@
                     (windowsize 4096) (fftsize 4096) (step 256) (windowtype "hanning")
                     (out "f0.sdif"))
             :initvals '(nil nil nil 100 300 3000 4096 4096 256 "hanning" "f0.sdif")
-            :menuins (list
-                      (list 9 '(("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
+            :menuins '((9 (("Blackman" "blackman")("Hanning" "hanning")("Hamming" "hamming"))))
             :icon :pm2-f0
             :doc "Fundamental frequency estimation.
 
