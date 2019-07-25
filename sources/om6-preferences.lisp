@@ -38,7 +38,6 @@
 (add-external-pref-module 'pm2)
 
 (defmethod get-external-name ((module (eql 'pm2))) "PM2")
-(defmethod get-external-icon ((module (eql 'pm2))) (and (exist-lib-p "OM-pm2") (list 953 (exist-lib-p "OM-pm2"))))
 
 (defmethod get-external-module-vals ((module (eql 'pm2)) modulepref) (get-pref modulepref :pm2-options))
 (defmethod get-external-module-path ((module (eql 'pm2)) modulepref) (get-pref modulepref :pm2-path))
