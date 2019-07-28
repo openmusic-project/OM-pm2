@@ -104,11 +104,6 @@ fad:  Fade Harmonics
 ;;;-Os -p0 -q15 -m68.0 -a0.02 -r0.03 -Ct0.017 -Cf0.029 --devFR=0.012 --devFC=0.1 --devA=0.51 --devM=5 --devK=5 -L0.009  
 ;;;"/Applications/AudioSculpt 2.4.2/Partials/temppart-LbBy.trc.sdif"
 
-
-;;; compat om6/7
-#-om7 (defmethod om::file-pathname ((self om::sdiffile)) (om::filepathname self))
-#-om7 (defmethod om::file-map ((self om::sdiffile)) (om::streamsdesc self))
-
 (defmethod pm2-partial-tracking ((sound string) &key
                                  begin-t end-t
                                  (max-partials 12) (amp-treshold -40)
@@ -138,9 +133,11 @@ fad:  Fade Harmonics
                                 fftstr 
                                 (if (string-equal analysis-type "harmonic") 
                                     (let ((f0file (cond ((pathnamep analysis-params) analysis-params)
-                                                        ((stringp analysis-params) (if (probe-file analysis-params) (pathname analysis-params) (tmpfile analysis-params)))
-                                                        ((typep analysis-params 'om::sdiffile) (om::file-pathname analysis-params))
-                                                        (t (let ((tmpfile (tmpfile "ptrack-f0.sdif")))
+                                                        ((stringp analysis-params) (if (probe-file analysis-params) 
+                                                                                       (pathname analysis-params) 
+                                                                                     (om::tmpfile analysis-params)))
+                                                        ((typep analysis-params 'om::sdiffile) (om::filepathname analysis-params))
+                                                        (t (let ((tmpfile (om::tmpfile "ptrack-f0.sdif")))
                                                              (pm2-f0 sound :fund-minfreq 50.0 :fund-maxfreq 2000.0 :spectrum-maxfreq 4000.0 :out tmpfile)
                                                              (om::add-tmp-file tmpfile)
                                                              tmpfile)))))
@@ -158,7 +155,7 @@ fad:  Fade Harmonics
                                           (float (nth 1 data))
                                           (/ (nth 2 data) 100.0)
                                           (nth 3 data)
-                                          (if (< (nth 4 data) (nth 3 data)) (nth3 data) (nth 4 data))
+                                          (if (< (nth 4 data) (nth 3 data)) (nth 3 data) (nth 4 data))
                                           (nth 7 data)
                                           ))
                                 unix-outname)))
@@ -286,7 +283,7 @@ fad:  Fade Harmonics
                                             (float (nth 1 data))
                                             (/ (nth 2 data) 100.0)
                                             (nth 3 data)
-                                            (if (< (nth 4 data) (nth 3 data)) (nth3 data) (nth 4 data))
+                                            (if (< (nth 4 data) (nth 3 data)) (nth 3 data) (nth 4 data))
                                             (nth 7 data)
                                             (nth 8 data)
                                             )))
@@ -356,8 +353,7 @@ fad:  Fade Harmonics
           (when outname
             (setf outname (om::handle-new-file-exists outname))
             (setf om::*last-saved-dir* (om::om-make-pathname :directory outname))
-            (let* ((unix-outname (namestring outname))
-                   (beginstr (if begin-t (format nil "-B~D " begin-t) ""))
+            (let* ((beginstr (if begin-t (format nil "-B~D " begin-t) ""))
                    (endstr (if end-t (format nil "-E~D " end-t) ""))
                    (fftstr (format nil "-M~D -I~D -N~D -m40 -W~D" 
                                    (if windowsize windowsize 4096) 
@@ -425,7 +421,7 @@ fad:  Fade Harmonics
                                                   :directory (om::def-save-directory)))))
         (when outname
           (setf outname (om::handle-new-file-exists outname)) 
-          (setf *last-saved-dir* (make-pathname :directory (pathname-directory outname)))
+          (setf om::*last-saved-dir* (make-pathname :directory (pathname-directory outname)))
           (let* ((unix-outname (namestring outname))
                  (cmd (format nil "~s -Asyn -S~s ~A ~A -a~D -r~D -R~D -Osa~D ~s" 
                               (namestring PM2-path)
@@ -445,7 +441,7 @@ fad:  Fade Harmonics
             (probe-file outname))))
     (progn
       (om::maybe-clean-tmp-files)
-      (om-beep-msg "PM2 not found! Set path to pm2 in the OM preferences.")))))
+      (om::om-beep-msg "PM2 not found! Set path to pm2 in the OM preferences.")))))
 
 
 (defmethod pm2-synthesis ((partiels pathname) &key (attack 0.01) (release 0.01) (sr 44100) 
@@ -456,8 +452,9 @@ fad:  Fade Harmonics
 
 (defmethod pm2-synthesis ((partiels om::sdiffile) &key (attack 0.01) (release 0.01) (sr 44100) 
                           (res 16) (out "pm2-out.aiff") nchannels sub-from)
-  (pm2-synthesis (om::file-pathname partiels) :attack attack :release release :sr sr :res res :out out
-                 :nchannels (length (om::file-map partiels))
+  (declare (ignore nchannels))
+  (pm2-synthesis (om::filepathname partiels) :attack attack :release release :sr sr :res res :out out
+                 :nchannels (length (om::streamsdesc partiels))
                  :sub-from sub-from))
 
 
