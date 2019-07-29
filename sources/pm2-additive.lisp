@@ -138,7 +138,9 @@ fad:  Fade Harmonics
                                                                                      (om::tmpfile analysis-params)))
                                                         ((typep analysis-params 'om::sdiffile) (om::filepathname analysis-params))
                                                         (t (let ((tmpfile (om::tmpfile "ptrack-f0.sdif")))
-                                                             (pm2-f0 sound :fund-minfreq 50.0 :fund-maxfreq 2000.0 :spectrum-maxfreq 4000.0 :out tmpfile)
+                                                             (pm2-f0 sound
+                                                                     :fund-minfreq 50.0 :fund-maxfreq 2000.0 
+                                                                     :spectrum-maxfreq 4000.0 :out tmpfile)
                                                              (om::add-tmp-file tmpfile)
                                                              tmpfile)))))
                                       (format nil " -P~s " (namestring f0file)))
