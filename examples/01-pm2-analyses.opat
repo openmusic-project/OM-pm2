@@ -1,0 +1,3090 @@
+
+(:patch
+ (:om-version 0.03)
+ (:name "01-pm2-analyses")
+ (:doc "")
+ (:info
+  (:created "2019/09/23 23:05:26")
+  (:modified "2019/09/23 23:18:02"))
+ (:window (:size (1258 664)) (:position (85 69)))
+ (:grid nil)
+ (:lock nil)
+ (:boxes
+  (:comment
+   (:x 303)
+   (:y 4)
+   (:w 568)
+   (:h 38)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font-or-nil
+     (:font (:font (:face "Calibri") (:size 13) (:style :plain)))
+     (:t-or-nil t)))
+   (:align nil)
+   (:text
+    "All sound analysis results are saved as SDIF files.
+OM provides tools for reading and manipulating SDIF data (see SDIF package and tutorials)")
+   (:id 0))
+  (:comment
+   (:x 907)
+   (:y 256)
+   (:w 233)
+   (:h 25)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font-or-nil
+     (:font (:font (:face "Calibri") (:size 13) (:style :plain)))
+     (:t-or-nil t)))
+   (:align nil)
+   (:text "FUNDAMENTAL FREQUENCY ESTIMATION")
+   (:id 1))
+  (:comment
+   (:x 361)
+   (:y 75)
+   (:w 338)
+   (:h 38)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font-or-nil
+     (:font (:font (:face "Calibri") (:size 13) (:style :plain)))
+     (:t-or-nil t)))
+   (:align nil)
+   (:text
+    "CHORD-SEQ ANALYSIS
+(uses preliminary sound segmetation to discriminate 'chords')")
+   (:id 2))
+  (:comment
+   (:x 83)
+   (:y 7)
+   (:w 201)
+   (:h 30)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font-or-nil
+     (:font (:font (:face "Calibri") (:size 18) (:style :bold)))
+     (:t-or-nil t)))
+   (:align nil)
+   (:text "pm2 analysis tools")
+   (:id 3))
+  (:comment
+   (:x 392)
+   (:y 571)
+   (:w 337)
+   (:h 40)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font-or-nil
+     (:font (:font (:face "Calibri") (:size 13) (:style :italic)))
+     (:t-or-nil t)))
+   (:align nil)
+   (:text
+    "See the functions documetation [d] for a detailed description of the analysis tools arguments")
+   (:id 4))
+  (:box
+   (:type :object)
+   (:reference chord-seq)
+   (:group-id nil)
+   (:name "CHORD-SEQ")
+   (:x 67)
+   (:y 444)
+   (:w 245)
+   (:h 94)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CHORD-SEQ")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LMIDIC")
+     (:value (:list 6000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LONSET")
+     (:value (:list 0 1000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LDUR")
+     (:value (:list 1000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LVEL")
+     (:value (:list 100))
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "LMIDIC") (:reactive nil))
+    (:output (:name "LONSET") (:reactive nil))
+    (:output (:name "LDUR") (:reactive nil))
+    (:output (:name "LVEL") (:reactive nil)))
+   (:window (:size (650 300)) (:position (127 115)))
+   (:edition-params (:staff :g))
+   (:value
+    (:object
+     (:class chord-seq)
+     (:slots
+      ((:onset 0)
+       (:duration 2651)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:symbolic-date nil)
+       (:symbolic-dur nil)
+       (:symbolic-dur-extent 0)
+       (:lmidic
+        (:list
+         (:list 7308)
+         (:list 4908)
+         (:list 8906)
+         (:list 9002)
+         (:list 9008)
+         (:list 7302)
+         (:list 6914)
+         (:list 8500)
+         (:list 9508)
+         (:list 4510)
+         (:list 4518)
+         (:list 9314)
+         (:list 5312)
+         (:list 4952)
+         (:list 9516)
+         (:list 7918)
+         (:list 9640)
+         (:list 9424)
+         (:list 9556)
+         (:list 4956)
+         (:list 9484)
+         (:list 5498)
+         (:list 9498)
+         (:list 4514)
+         (:list 4966)
+         (:list 9114)
+         (:list 7532)
+         (:list 7466)
+         (:list 9078)
+         (:list 5068)
+         (:list 5232)
+         (:list 5108)
+         (:list 8416)
+         (:list 9996)
+         (:list 8342)
+         (:list 5154)
+         (:list 8528)
+         (:list 6006)
+         (:list 5086)
+         (:list 9822)
+         (:list 8264)
+         (:list 8212)
+         (:list 9840)
+         (:list 5830)
+         (:list 5166)
+         (:list 7614)
+         (:list 5186)
+         (:list 9198)
+         (:list 9112)
+         (:list 7310)
+         (:list 8906)
+         (:list 9664)
+         (:list 9870)
+         (:list 9970)
+         (:list 4892)
+         (:list 7918)
+         (:list 5496)
+         (:list 5220)
+         (:list 9898)
+         (:list 9756)
+         (:list 9810)
+         (:list 9946)
+         (:list 5222)
+         (:list 5902)
+         (:list 9974)
+         (:list 8318)
+         (:list 8248)
+         (:list 9878)
+         (:list 5216)
+         (:list 7304)
+         (:list 9910)
+         (:list 5240)
+         (:list 5228)
+         (:list 5228)
+         (:list 9000)
+         (:list 9150)
+         (:list 10008)
+         (:list 8938)
+         (:list 7424)
+         (:list 4846)
+         (:list 4918)
+         (:list 8906)
+         (:list 9062)
+         (:list 9114)
+         (:list 7692)
+         (:list 8860)
+         (:list 6806)
+         (:list 8960)
+         (:list 9008)
+         (:list 6804)
+         (:list 6804)))
+       (:lonset
+        (:list
+         43
+         43
+         43
+         139
+         240
+         304
+         315
+         315
+         331
+         373
+         405
+         469
+         491
+         587
+         635
+         640
+         651
+         651
+         651
+         656
+         667
+         683
+         709
+         784
+         789
+         805
+         811
+         827
+         832
+         848
+         880
+         901
+         965
+         965
+         981
+         981
+         987
+         987
+         1120
+         1141
+         1152
+         1157
+         1179
+         1248
+         1259
+         1307
+         1307
+         1307
+         1312
+         1488
+         1493
+         1499
+         1499
+         1509
+         1584
+         1643
+         1648
+         1744
+         1797
+         1803
+         1808
+         1808
+         1808
+         1808
+         1813
+         1813
+         1819
+         1829
+         1845
+         1856
+         1872
+         1888
+         2005
+         2043
+         2128
+         2149
+         2149
+         2160
+         2160
+         2165
+         2181
+         2325
+         2325
+         2336
+         2347
+         2347
+         2357
+         2357
+         2357
+         2597
+         2640
+         2651))
+       (:ldur
+        (:list
+         (:list 213)
+         (:list 539)
+         (:list 133)
+         (:list 80)
+         (:list 53)
+         (:list 37)
+         (:list 101)
+         (:list 85)
+         (:list 21)
+         (:list 11)
+         (:list 347)
+         (:list 96)
+         (:list 213)
+         (:list 43)
+         (:list 123)
+         (:list 309)
+         (:list 32)
+         (:list 32)
+         (:list 59)
+         (:list 96)
+         (:list 21)
+         (:list 949)
+         (:list 16)
+         (:list 16)
+         (:list 43)
+         (:list 91)
+         (:list 128)
+         (:list 11)
+         (:list 32)
+         (:list 11)
+         (:list 11)
+         (:list 69)
+         (:list 256)
+         (:list 64)
+         (:list 16)
+         (:list 96)
+         (:list 16)
+         (:list 480)
+         (:list 16)
+         (:list 53)
+         (:list 32)
+         (:list 160)
+         (:list 11)
+         (:list 256)
+         (:list 11)
+         (:list 256)
+         (:list 432)
+         (:list 80)
+         (:list 69)
+         (:list 325)
+         (:list 139)
+         (:list 43)
+         (:list 48)
+         (:list 16)
+         (:list 565)
+         (:list 213)
+         (:list 1253)
+         (:list 43)
+         (:list 117)
+         (:list 96)
+         (:list 43)
+         (:list 48)
+         (:list 21)
+         (:list 757)
+         (:list 43)
+         (:list 245)
+         (:list 21)
+         (:list 59)
+         (:list 21)
+         (:list 11)
+         (:list 11)
+         (:list 16)
+         (:list 16)
+         (:list 11)
+         (:list 208)
+         (:list 21)
+         (:list 37)
+         (:list 85)
+         (:list 16)
+         (:list 11)
+         (:list 976)
+         (:list 213)
+         (:list 101)
+         (:list 32)
+         (:list 27)
+         (:list 11)
+         (:list 32)
+         (:list 53)
+         (:list 11)
+         (:list 11)
+         (:list 11)))
+       (:lvel
+        (:list
+         (:list 21)
+         (:list 51)
+         (:list 31)
+         (:list 36)
+         (:list 12)
+         (:list 13)
+         (:list 17)
+         (:list 16)
+         (:list 11)
+         (:list 12)
+         (:list 14)
+         (:list 26)
+         (:list 45)
+         (:list 33)
+         (:list 37)
+         (:list 46)
+         (:list 14)
+         (:list 12)
+         (:list 37)
+         (:list 26)
+         (:list 21)
+         (:list 69)
+         (:list 16)
+         (:list 10)
+         (:list 20)
+         (:list 20)
+         (:list 17)
+         (:list 11)
+         (:list 18)
+         (:list 19)
+         (:list 40)
+         (:list 35)
+         (:list 29)
+         (:list 19)
+         (:list 14)
+         (:list 26)
+         (:list 11)
+         (:list 31)
+         (:list 12)
+         (:list 19)
+         (:list 14)
+         (:list 23)
+         (:list 14)
+         (:list 14)
+         (:list 12)
+         (:list 31)
+         (:list 51)
+         (:list 16)
+         (:list 15)
+         (:list 36)
+         (:list 23)
+         (:list 14)
+         (:list 16)
+         (:list 11)
+         (:list 45)
+         (:list 32)
+         (:list 75)
+         (:list 43)
+         (:list 39)
+         (:list 39)
+         (:list 16)
+         (:list 19)
+         (:list 34)
+         (:list 87)
+         (:list 16)
+         (:list 22)
+         (:list 15)
+         (:list 26)
+         (:list 27)
+         (:list 11)
+         (:list 14)
+         (:list 31)
+         (:list 21)
+         (:list 13)
+         (:list 53)
+         (:list 13)
+         (:list 13)
+         (:list 19)
+         (:list 11)
+         (:list 15)
+         (:list 62)
+         (:list 102)
+         (:list 20)
+         (:list 13)
+         (:list 11)
+         (:list 13)
+         (:list 11)
+         (:list 19)
+         (:list 13)
+         (:list 10)
+         (:list 10)))
+       (:loffset
+        (:list
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)))
+       (:lchan
+        (:list
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)))
+       (:lport
+        (:list
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil))
+       (:llegato nil)))
+     (:add-slots
+      ((:loffset
+        (:list
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)
+         (:list 0)))
+       (:lchan
+        (:list
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)
+         (:list 1)))
+       (:lport
+        (:list
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil
+         nil))
+       (:llegato nil)))))
+   (:id 5))
+  (:box
+   (:type :object)
+   (:reference bpf)
+   (:group-id nil)
+   (:name "BPF")
+   (:x 838)
+   (:y 430)
+   (:w 215)
+   (:h 121)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "BPF")
+   (:display :mini-view)
+   (:showname t)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "X-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "Y-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "decimals")
+     (:value 0)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "X-POINTS") (:reactive nil))
+    (:output (:name "Y-POINTS") (:reactive nil))
+    (:output (:name "decimals") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class bpf)
+     (:slots
+      ((:onset 0)
+       (:duration 3.18)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:action nil)
+       (:color (:color 0.0 0.0 0.0 1.0))
+       (:decimals 2)
+       (:x-points
+        (:list
+         0.02
+         0.03
+         0.03
+         0.04
+         0.04
+         0.05
+         0.05
+         0.06
+         0.06
+         0.07
+         0.07
+         0.08
+         0.09
+         0.09
+         0.1
+         0.1
+         0.11
+         0.11
+         0.12
+         0.12
+         0.13
+         0.13
+         0.14
+         0.14
+         0.15
+         0.15
+         0.16
+         0.17
+         0.17
+         0.18
+         0.18
+         0.19
+         0.19
+         0.2
+         0.2
+         0.21
+         0.21
+         0.22
+         0.22
+         0.23
+         0.23
+         0.24
+         0.25
+         0.25
+         0.26
+         0.26
+         0.27
+         0.27
+         0.28
+         0.28
+         0.29
+         0.29
+         0.3
+         0.3
+         0.31
+         0.31
+         0.32
+         0.33
+         0.33
+         0.34
+         0.34
+         0.35
+         0.35
+         0.36
+         0.36
+         0.37
+         0.37
+         0.38
+         0.38
+         0.39
+         0.39
+         0.4
+         0.41
+         0.41
+         0.42
+         0.42
+         0.43
+         0.43
+         0.44
+         0.44
+         0.45
+         0.45
+         0.46
+         0.46
+         0.47
+         0.47
+         0.48
+         0.49
+         0.49
+         0.5
+         0.5
+         0.51
+         0.51
+         0.52
+         0.52
+         0.53
+         0.53
+         0.54
+         0.54
+         0.55
+         0.55
+         0.56
+         0.57
+         0.57
+         0.58
+         0.58
+         0.59
+         0.59
+         0.6
+         0.6
+         0.61
+         0.61
+         0.62
+         0.62
+         0.63
+         0.63
+         0.64
+         0.65
+         0.65
+         0.66
+         0.66
+         0.67
+         0.67
+         0.68
+         0.68
+         0.69
+         0.69
+         0.7
+         0.7
+         0.71
+         0.71
+         0.72
+         0.73
+         0.73
+         0.74
+         0.74
+         0.75
+         0.75
+         0.76
+         0.76
+         0.77
+         0.77
+         0.78
+         0.78
+         0.79
+         0.79
+         0.8
+         0.81
+         0.81
+         0.82
+         0.82
+         0.83
+         0.83
+         0.84
+         0.84
+         0.85
+         0.85
+         0.86
+         0.86
+         0.87
+         0.87
+         0.88
+         0.89
+         0.89
+         0.9
+         0.9
+         0.91
+         0.91
+         0.92
+         0.92
+         0.93
+         0.93
+         0.94
+         0.94
+         0.95
+         0.95
+         0.96
+         0.97
+         0.97
+         0.98
+         0.98
+         0.99
+         0.99
+         1.0
+         1.0
+         1.01
+         1.01
+         1.02
+         1.02
+         1.03
+         1.03
+         1.04
+         1.05
+         1.05
+         1.06
+         1.06
+         1.07
+         1.07
+         1.08
+         1.08
+         1.09
+         1.09
+         1.1
+         1.1
+         1.11
+         1.11
+         1.12
+         1.13
+         1.13
+         1.14
+         1.14
+         1.15
+         1.15
+         1.16
+         1.16
+         1.17
+         1.17
+         1.18
+         1.18
+         1.19
+         1.19
+         1.2
+         1.21
+         1.21
+         1.22
+         1.22
+         1.23
+         1.23
+         1.24
+         1.24
+         1.25
+         1.25
+         1.26
+         1.26
+         1.27
+         1.27
+         1.28
+         1.29
+         1.29
+         1.3
+         1.3
+         1.31
+         1.31
+         1.32
+         1.32
+         1.33
+         1.33
+         1.34
+         1.34
+         1.35
+         1.35
+         1.36
+         1.37
+         1.37
+         1.38
+         1.38
+         1.39
+         1.39
+         1.4
+         1.4
+         1.41
+         1.41
+         1.42
+         1.42
+         1.43
+         1.43
+         1.44
+         1.45
+         1.45
+         1.46
+         1.46
+         1.47
+         1.47
+         1.48
+         1.48
+         1.49
+         1.49
+         1.5
+         1.5
+         1.51
+         1.51
+         1.52
+         1.53
+         1.53
+         1.54
+         1.54
+         1.55
+         1.55
+         1.56
+         1.56
+         1.57
+         1.57
+         1.58
+         1.58
+         1.59
+         1.59
+         1.6
+         1.61
+         1.61
+         1.62
+         1.62
+         1.63
+         1.63
+         1.64
+         1.64
+         1.65
+         1.65
+         1.66
+         1.66
+         1.67
+         1.67
+         1.68
+         1.69
+         1.69
+         1.7
+         1.7
+         1.71
+         1.71
+         1.72
+         1.72
+         1.73
+         1.73
+         1.74
+         1.74
+         1.75
+         1.75
+         1.76
+         1.77
+         1.77
+         1.78
+         1.78
+         1.79
+         1.79
+         1.8
+         1.8
+         1.81
+         1.81
+         1.82
+         1.82
+         1.83
+         1.83
+         1.84
+         1.85
+         1.85
+         1.86
+         1.86
+         1.87
+         1.87
+         1.88
+         1.88
+         1.89
+         1.89
+         1.9
+         1.9
+         1.91
+         1.91
+         1.92
+         1.93
+         1.93
+         1.94
+         1.94
+         1.95
+         1.95
+         1.96
+         1.96
+         1.97
+         1.97
+         1.98
+         1.98
+         1.99
+         1.99
+         2.0
+         2.01
+         2.01
+         2.02
+         2.02
+         2.03
+         2.03
+         2.04
+         2.04
+         2.05
+         2.05
+         2.06
+         2.06
+         2.07
+         2.07
+         2.08
+         2.09
+         2.09
+         2.1
+         2.1
+         2.11
+         2.11
+         2.12
+         2.12
+         2.13
+         2.13
+         2.14
+         2.14
+         2.15
+         2.15
+         2.16
+         2.17
+         2.17
+         2.18
+         2.18
+         2.19
+         2.19
+         2.2
+         2.2
+         2.21
+         2.21
+         2.22
+         2.22
+         2.23
+         2.23
+         2.24
+         2.25
+         2.25
+         2.26
+         2.26
+         2.27
+         2.27
+         2.28
+         2.28
+         2.29
+         2.29
+         2.3
+         2.3
+         2.31
+         2.31
+         2.32
+         2.33
+         2.33
+         2.34
+         2.34
+         2.35
+         2.35
+         2.36
+         2.36
+         2.37
+         2.37
+         2.38
+         2.38
+         2.39
+         2.39
+         2.4
+         2.41
+         2.41
+         2.42
+         2.42
+         2.43
+         2.43
+         2.44
+         2.44
+         2.45
+         2.45
+         2.46
+         2.46
+         2.47
+         2.47
+         2.48
+         2.49
+         2.49
+         2.5
+         2.5
+         2.51
+         2.51
+         2.52
+         2.52
+         2.53
+         2.53
+         2.54
+         2.54
+         2.55
+         2.55
+         2.56
+         2.57
+         2.57
+         2.58
+         2.58
+         2.59
+         2.59
+         2.6
+         2.6
+         2.61
+         2.61
+         2.62
+         2.62
+         2.63
+         2.63
+         2.64
+         2.65
+         2.65
+         2.66
+         2.66
+         2.67
+         2.67
+         2.68
+         2.68
+         2.69
+         2.69
+         2.7
+         2.7
+         2.71
+         2.71
+         2.72
+         2.73
+         2.73
+         2.74
+         2.74
+         2.75
+         2.75
+         2.76
+         2.76
+         2.77
+         2.77
+         2.78
+         2.78
+         2.79
+         2.79
+         2.8
+         2.81
+         2.81
+         2.82
+         2.82
+         2.83
+         2.83
+         2.84
+         2.84
+         2.85
+         2.85
+         2.86
+         2.86
+         2.87
+         2.87
+         2.88
+         2.89
+         2.89
+         2.9
+         2.9
+         2.91
+         2.91
+         2.92
+         2.92
+         2.93
+         2.93
+         2.94
+         2.94
+         2.95
+         2.95
+         2.96
+         2.97
+         2.97
+         2.98
+         2.98
+         2.99
+         2.99
+         3.0
+         3.0
+         3.01
+         3.01
+         3.02
+         3.02
+         3.03
+         3.03
+         3.04
+         3.05
+         3.05
+         3.06
+         3.06
+         3.07
+         3.07
+         3.08
+         3.08
+         3.09
+         3.09
+         3.1
+         3.1
+         3.11
+         3.11
+         3.12
+         3.13
+         3.13
+         3.14
+         3.14
+         3.15
+         3.15
+         3.16
+         3.16
+         3.17
+         3.17
+         3.18))
+       (:y-points
+        (:list
+         250.95
+         250.93
+         250.95
+         251.07
+         251.01
+         250.98
+         250.95
+         250.93
+         250.91
+         250.65
+         250.62
+         250.62
+         250.62
+         250.62
+         250.65
+         250.65
+         250.65
+         250.65
+         251.01
+         251.01
+         251.01
+         251.85
+         251.85
+         251.85
+         251.85
+         251.85
+         251.85
+         251.85
+         251.85
+         251.85
+         251.35
+         157.04
+         143.84
+         143.08
+         139.81
+         139.31
+         139.31
+         139.31
+         139.16
+         139.08
+         139.16
+         139.31
+         139.25
+         139.25
+         139.25
+         139.28
+         139.28
+         139.31
+         139.44
+         139.87
+         140.05
+         140.31
+         140.43
+         140.53
+         140.56
+         141.03
+         141.17
+         145.0
+         145.12
+         145.19
+         145.2
+         145.3
+         145.47
+         192.64
+         192.78
+         192.78
+         192.64
+         145.47
+         145.3
+         145.2
+         145.19
+         145.12
+         145.0
+         144.63
+         144.63
+         144.56
+         144.56
+         144.56
+         144.42
+         144.38
+         144.38
+         144.38
+         144.42
+         144.56
+         144.56
+         189.12
+         200.58
+         202.05
+         203.82
+         203.95
+         205.0
+         223.98
+         223.98
+         223.98
+         223.98
+         223.98
+         223.98
+         223.98
+         223.98
+         222.09
+         222.09
+         219.24
+         192.85
+         186.05
+         185.6
+         178.05
+         178.05
+         178.05
+         178.05
+         178.05
+         178.05
+         180.77
+         185.6
+         185.6
+         186.05
+         199.51
+         199.78
+         211.26
+         212.85
+         213.09
+         229.71
+         230.14
+         230.14
+         230.14
+         230.14
+         230.14
+         230.14
+         230.14
+         229.71
+         217.61
+         213.09
+         212.8
+         212.3
+         211.92
+         211.83
+         198.29
+         198.29
+         198.29
+         198.14
+         198.04
+         198.14
+         198.14
+         198.14
+         198.14
+         198.29
+         198.29
+         198.32
+         198.63
+         198.63
+         198.63
+         198.63
+         198.98
+         199.01
+         199.04
+         199.15
+         199.15
+         199.15
+         199.06
+         199.06
+         199.06
+         199.06
+         199.06
+         199.04
+         199.01
+         199.01
+         199.01
+         199.01
+         199.01
+         199.04
+         199.06
+         199.1
+         199.06
+         199.01
+         199.01
+         198.91
+         198.74
+         198.47
+         198.42
+         198.42
+         198.42
+         198.42
+         198.47
+         199.27
+         199.27
+         194.36
+         194.32
+         194.23
+         193.97
+         193.97
+         193.97
+         192.99
+         192.97
+         192.92
+         161.45
+         161.26
+         161.08
+         161.08
+         160.86
+         160.69
+         160.54
+         160.42
+         160.42
+         160.54
+         160.69
+         160.86
+         160.86
+         160.86
+         160.86
+         229.64
+         229.95
+         229.95
+         229.95
+         229.95
+         229.64
+         229.64
+         229.64
+         229.64
+         229.64
+         220.18
+         220.04
+         220.0
+         213.51
+         212.71
+         209.57
+         209.57
+         207.69
+         164.72
+         164.72
+         164.72
+         164.72
+         164.72
+         209.57
+         209.57
+         210.07
+         212.71
+         212.71
+         212.89
+         216.69
+         219.21
+         220.95
+         224.96
+         224.96
+         224.96
+         224.96
+         224.96
+         224.96
+         224.96
+         224.96
+         224.96
+         167.11
+         166.98
+         166.79
+         166.51
+         166.47
+         166.18
+         165.99
+         165.87
+         165.51
+         165.15
+         164.98
+         164.98
+         164.98
+         164.98
+         164.98
+         164.98
+         165.15
+         165.15
+         165.15
+         165.15
+         165.15
+         165.15
+         165.15
+         165.15
+         166.9
+         170.23
+         246.68
+         246.69
+         246.69
+         246.69
+         246.69
+         246.69
+         246.69
+         246.69
+         246.69
+         246.68
+         246.68
+         246.68
+         245.95
+         245.95
+         245.95
+         245.47
+         245.47
+         245.47
+         245.47
+         245.95
+         246.38
+         246.78
+         252.85
+         253.19
+         258.33
+         260.08
+         264.9
+         265.52
+         266.17
+         266.27
+         266.36
+         266.74
+         267.09
+         267.09
+         267.09
+         267.09
+         267.09
+         266.74
+         266.36
+         266.36
+         266.27
+         266.22
+         262.47
+         261.3
+         260.76
+         196.67
+         196.65
+         196.63
+         196.58
+         196.43
+         196.43
+         196.43
+         196.43
+         196.43
+         196.58
+         196.63
+         196.65
+         196.67
+         237.78
+         238.05
+         238.9
+         238.96
+         239.02
+         240.12
+         240.51
+         243.64
+         245.57
+         245.57
+         245.57
+         250.0
+         250.0
+         250.08
+         250.0
+         250.08
+         250.08
+         250.13
+         250.13
+         250.13
+         250.13
+         250.13
+         250.08
+         250.0
+         249.78
+         249.64
+         249.49
+         249.06
+         249.06
+         249.06
+         249.06
+         249.06
+         248.63
+         248.59
+         248.34
+         248.09
+         247.69
+         247.69
+         247.69
+         248.09
+         248.49
+         248.63
+         248.63
+         248.91
+         248.72
+         248.49
+         247.69
+         247.49
+         247.49
+         246.85
+         246.7
+         246.7
+         197.79
+         197.78
+         197.77
+         197.62
+         197.62
+         197.62
+         196.88
+         196.88
+         196.88
+         196.88
+         197.62
+         197.77
+         197.78
+         197.79
+         197.78
+         197.77
+         201.74
+         226.06
+         247.78
+         262.37
+         263.83
+         263.83
+         263.83
+         263.83
+         263.83
+         226.06
+         202.89
+         202.72
+         201.74
+         202.67
+         202.36
+         202.36
+         202.36
+         202.31
+         202.22
+         201.89
+         201.45
+         201.24
+         201.24
+         201.24
+         201.24
+         201.24
+         201.89
+         202.22
+         202.31
+         202.36
+         202.36
+         213.96
+         214.62
+         214.62
+         214.62
+         216.13
+         216.13
+         216.13
+         216.13
+         216.13
+         214.62
+         214.28
+         214.25
+         214.11
+         214.0
+         213.96
+         205.58
+         205.58
+         204.24
+         204.24
+         204.22
+         203.85
+         203.69
+         203.4
+         145.45
+         145.05
+         144.67
+         144.33
+         144.1
+         144.02
+         140.79
+         139.25
+         139.25
+         139.08
+         139.07
+         139.07
+         139.07
+         139.07
+         139.07
+         139.07
+         139.07
+         139.08
+         139.1
+         139.1
+         139.1
+         139.08
+         139.07
+         139.07
+         139.02
+         138.99
+         139.0
+         139.0
+         139.0
+         139.0
+         139.0
+         139.0
+         139.0
+         139.03
+         139.03
+         139.03
+         139.06
+         139.06
+         139.06
+         139.06
+         139.06
+         139.06
+         139.06
+         139.06
+         139.03
+         138.39
+         138.27
+         138.17
+         138.02
+         137.78
+         137.6
+         137.24
+         137.24
+         137.24
+         137.24
+         137.24
+         137.24
+         137.24
+         137.24
+         137.24
+         137.39
+         137.39
+         137.39
+         137.39
+         137.39
+         137.39
+         137.39
+         137.39
+         137.39
+         137.27
+         137.06
+         136.86
+         136.69
+         136.69
+         136.69
+         136.69
+         136.69
+         136.69
+         136.69
+         136.69
+         136.69
+         136.55
+         136.55
+         136.55
+         138.1
+         138.1
+         138.1
+         138.1
+         138.1
+         138.1
+         138.0
+         136.55
+         136.45
+         136.33
+         136.33
+         136.33
+         135.72
+         135.52
+         135.52
+         135.52
+         135.52
+         135.52
+         135.52
+         135.52
+         136.53
+         136.65
+         137.35
+         137.54
+         137.54
+         137.54
+         137.54
+         137.54
+         137.54
+         137.54
+         137.54
+         137.54
+         137.44
+         136.32
+         136.12
+         136.0
+         134.97
+         134.97
+         134.97
+         134.97
+         134.97
+         134.97
+         136.0
+         136.12
+         136.19
+         136.32
+         136.28
+         136.37
+         136.45
+         136.53
+         136.61
+         136.69
+         136.73
+         136.77))))
+     (:add-slots
+      ((:decimals 2)
+       (:color (:color 0.0 0.0 0.0 1.0))
+       (:name "BPF")
+       (:action nil)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
+   (:id 6))
+  (:box
+   (:type :function)
+   (:reference sdif->bpf)
+   (:group-id nil)
+   (:name "sdif->bpf")
+   (:x 827)
+   (:y 383)
+   (:w 81)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 7))
+  (:box
+   (:type :object)
+   (:reference sdiffile)
+   (:group-id nil)
+   (:name "f0.sdif")
+   (:x 831)
+   (:y 293)
+   (:w 112)
+   (:h 66)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "f0.sdif")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value :choose-file)
+     (:reactive nil)))
+   (:outputs (:output (:name "SELF") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sdiffile)
+     (:slots nil)
+     (:add-slots
+      ((:file-pathname
+        (:pathname
+         (:directory (:absolute "Users" "bresson" "OM" "out-files"))
+         (:device nil)
+         (:host nil)
+         (:name "f0")
+         (:type "sdif")))
+       (:file-map
+        (:list
+         (:fstream-desc
+          (:id 0)
+          (:fsig "1FQ0")
+          (:tmin 0.021322917193174362D0)
+          (:tmax 3.1786563396453858D0)
+          (:nf 593)
+          (:matrices
+           (:list
+            (:mstream-desc
+             (:msig "1FQ0")
+             (:fields ("??????x1"))
+             (:rmax 1)
+             (:tmin 0.021322917193174362D0)
+             (:tmax 3.1786563396453858D0)
+             (:nf 593)))))))))))
+   (:id 8))
+  (:box
+   (:type :object)
+   (:reference sdiffile)
+   (:group-id nil)
+   (:name "chordseqs.sdif")
+   (:x 423)
+   (:y 284)
+   (:w 131)
+   (:h 60)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "chordseqs.sdif")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value :choose-file)
+     (:reactive nil)))
+   (:outputs (:output (:name "SELF") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sdiffile)
+     (:slots nil)
+     (:add-slots
+      ((:file-pathname
+        (:pathname
+         (:directory (:absolute "Users" "bresson" "OM" "out-files"))
+         (:device nil)
+         (:host nil)
+         (:name "chordseqs")
+         (:type "sdif")))
+       (:file-map
+        (:list
+         (:fstream-desc
+          (:id 0)
+          (:fsig "1MRK")
+          (:tmin 0.0D0)
+          (:tmax 3.0D0)
+          (:nf 6)
+          (:matrices
+           (:list
+            (:mstream-desc
+             (:msig "1BEG")
+             (:fields ("??????x1"))
+             (:rmax 8)
+             (:tmin 0.0D0)
+             (:tmax 2.0D0)
+             (:nf 5))
+            (:mstream-desc
+             (:msig "1TRC")
+             (:fields ("??????x1" "??????x2" "??????x3" "??????x4"))
+             (:rmax 8)
+             (:tmin 0.0D0)
+             (:tmax 2.0D0)
+             (:nf 5))
+            (:mstream-desc
+             (:msig "1END")
+             (:fields ("??????x1"))
+             (:rmax 8)
+             (:tmin 0.5D0)
+             (:tmax 3.0D0)
+             (:nf 5)))))))))))
+   (:id 9))
+  (:box
+   (:type :object)
+   (:reference sdiffile)
+   (:group-id nil)
+   (:name "partials.sdif")
+   (:x 100)
+   (:y 267)
+   (:w 151)
+   (:h 66)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "partials.sdif")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value :choose-file)
+     (:reactive nil)))
+   (:outputs (:output (:name "SELF") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sdiffile)
+     (:slots nil)
+     (:add-slots
+      ((:file-pathname
+        (:pathname
+         (:directory (:absolute "Users" "bresson" "OM" "out-files"))
+         (:device :unspecific)
+         (:host nil)
+         (:name "partials")
+         (:type "sdif")))
+       (:file-map
+        (:list
+         (:fstream-desc
+          (:id 0)
+          (:fsig "1TRC")
+          (:tmin -1.0416666666666667D-5)
+          (:tmax 3.2029375D0)
+          (:nf 587)
+          (:matrices
+           (:list
+            (:mstream-desc
+             (:msig "1TRC")
+             (:fields ("Index" "Frequency" "Amplitude" "Phase"))
+             (:rmax 13)
+             (:tmin -1.0416666666666667D-5)
+             (:tmax 3.2029375D0)
+             (:nf 587)))))))))))
+   (:id 10))
+  (:box
+   (:type :object)
+   (:reference sound)
+   (:group-id nil)
+   (:name "africa.aiff")
+   (:x 810)
+   (:y 127)
+   (:w 229)
+   (:h 68)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "africa.aiff")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock :locked)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value :choose-file)
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "markers")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "markers") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sound)
+     (:slots
+      ((:onset 0)
+       (:duration 0)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:default-frame-type marker-frame)
+       (:frames nil)
+       (:buffer nil)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
+       (:smpl-type :float)
+       (:sample-size 16)))
+     (:add-slots
+      ((:markers nil)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
+       (:gain 1.0)
+       (:access-from-file nil)))))
+   (:id 11))
+  (:box
+   (:type :object)
+   (:reference sound)
+   (:group-id nil)
+   (:name "africa.aiff")
+   (:x 404)
+   (:y 127)
+   (:w 229)
+   (:h 68)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "africa.aiff")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock :locked)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value :choose-file)
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "markers")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "markers") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sound)
+     (:slots
+      ((:onset 0)
+       (:duration 0)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:default-frame-type marker-frame)
+       (:frames nil)
+       (:buffer nil)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
+       (:smpl-type :float)
+       (:sample-size 16)))
+     (:add-slots
+      ((:markers nil)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
+       (:gain 1.0)
+       (:access-from-file nil)))))
+   (:id 12))
+  (:box
+   (:library "om-pm2")
+   (:type :function)
+   (:reference pm2-f0)
+   (:group-id nil)
+   (:name "pm2-f0")
+   (:x 831)
+   (:y 213)
+   (:w 73)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SOUND")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 13))
+  (:box
+   (:library "om-pm2")
+   (:type :function)
+   (:reference chord-seq-analysis)
+   (:group-id nil)
+   (:name "chord-seq-analysis")
+   (:x 429)
+   (:y 246)
+   (:w 129)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SOUND")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "markers")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 14))
+  (:box
+   (:library "om-pm2")
+   (:type :function)
+   (:reference partial-tracking)
+   (:group-id nil)
+   (:name "partial-tracking")
+   (:x 89)
+   (:y 224)
+   (:w 112)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SOUND")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 15))
+  (:box
+   (:type :object)
+   (:reference sound)
+   (:group-id nil)
+   (:name "africa.aiff")
+   (:x 89)
+   (:y 127)
+   (:w 229)
+   (:h 68)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "africa.aiff")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock :locked)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value :choose-file)
+     (:reactive nil)))
+   (:outputs (:output (:name "SELF") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sound)
+     (:slots
+      ((:onset 0)
+       (:duration 0)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:default-frame-type marker-frame)
+       (:frames nil)
+       (:buffer nil)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
+       (:smpl-type :float)
+       (:sample-size 16)))
+     (:add-slots
+      ((:markers nil)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
+       (:gain 1.0)
+       (:access-from-file nil)))))
+   (:id 16))
+  (:box
+   (:type :function)
+   (:reference sdif->chord-seq)
+   (:group-id nil)
+   (:name "sdif->chord-seq")
+   (:x 119)
+   (:y 362)
+   (:w 114)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 17))
+  (:box
+   (:type :object)
+   (:reference chord-seq)
+   (:group-id nil)
+   (:name "CHORD-SEQ")
+   (:x 402)
+   (:y 444)
+   (:w 245)
+   (:h 94)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CHORD-SEQ")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LMIDIC")
+     (:value (:list 6000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LONSET")
+     (:value (:list 0 1000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LDUR")
+     (:value (:list 1000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LVEL")
+     (:value (:list 100))
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "LMIDIC") (:reactive nil))
+    (:output (:name "LONSET") (:reactive nil))
+    (:output (:name "LDUR") (:reactive nil))
+    (:output (:name "LVEL") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params (:staff :g))
+   (:value
+    (:object
+     (:class chord-seq)
+     (:slots
+      ((:onset 0)
+       (:duration 3203)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:symbolic-date nil)
+       (:symbolic-dur nil)
+       (:symbolic-dur-extent 0)
+       (:lmidic
+        (:list
+         (:list 8906 7310 4912)
+         (:list 9516 7918 5504 4988 4510)
+         (:list 7618 5508 8416 6012 5194)
+         (:list 4894 9898 5892 7310 5222 7916 8320 5510)
+         (:list 8906 9000 4912 5492 5902)
+         (:list 4888)))
+       (:lonset (:list 0 500 1000 1500 2000 3000 3203))
+       (:ldur
+        (:list
+         (:list 500 500 500)
+         (:list 500 500 500 500 500)
+         (:list 500 500 500 500 500)
+         (:list 500 500 500 500 500 500 500 500)
+         (:list 1000 1000 1000 1000 1000)
+         (:list 203)))
+       (:lvel
+        (:list
+         (:list 53 54 98)
+         (:list 50 73 127 65 51)
+         (:list 54 103 54 78 68)
+         (:list 93 50 121 69 88 57 50 115)
+         (:list 66 52 107 116 80)
+         (:list 78)))
+       (:loffset
+        (:list
+         (:list 0 0 0)
+         (:list 0 0 0 0 0)
+         (:list 0 0 0 0 0)
+         (:list 0 0 0 0 0 0 0 0)
+         (:list 0 0 0 0 0)
+         (:list 0)))
+       (:lchan
+        (:list
+         (:list 1 1 1)
+         (:list 1 1 1 1 1)
+         (:list 1 1 1 1 1)
+         (:list 1 1 1 1 1 1 1 1)
+         (:list 1 1 1 1 1)
+         (:list 1)))
+       (:lport (:list nil nil nil nil nil nil))
+       (:llegato nil)))
+     (:add-slots
+      ((:loffset
+        (:list
+         (:list 0 0 0)
+         (:list 0 0 0 0 0)
+         (:list 0 0 0 0 0)
+         (:list 0 0 0 0 0 0 0 0)
+         (:list 0 0 0 0 0)
+         (:list 0)))
+       (:lchan
+        (:list
+         (:list 1 1 1)
+         (:list 1 1 1 1 1)
+         (:list 1 1 1 1 1)
+         (:list 1 1 1 1 1 1 1 1)
+         (:list 1 1 1 1 1)
+         (:list 1)))
+       (:lport (:list nil nil nil nil nil nil))
+       (:llegato nil)))))
+   (:id 18))
+  (:box
+   (:type :function)
+   (:reference sdif->chord-seq)
+   (:group-id nil)
+   (:name "sdif->chord-seq")
+   (:x 432)
+   (:y 378)
+   (:w 114)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 19))
+  (:comment
+   (:x 560)
+   (:y 285)
+   (:w 226)
+   (:h 56)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font-or-nil
+     (:font (:font (:face "Calibri") (:size 13) (:style :plain)))
+     (:t-or-nil t)))
+   (:align nil)
+   (:text
+    "The segments can be in the sound or passed directly to CHORD-SEQ-ANALYSIS in the :markers input")
+   (:id 20))
+  (:box
+   (:type :value)
+   (:reference cons)
+   (:group-id nil)
+   (:name "value box")
+   (:x 570)
+   (:y 207)
+   (:w 121)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value (:list 0 0.5 1.0 1.5 2.0 3.0))
+   (:id 21)))
+ (:connections
+  (:connection
+   (:from (:box 7 :out 0))
+   (:to (:box 6 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 8 :out 0))
+   (:to (:box 7 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 9 :out 0))
+   (:to (:box 19 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 10 :out 0))
+   (:to (:box 17 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 11 :out 0))
+   (:to (:box 13 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 12 :out 0))
+   (:to (:box 14 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 13 :out 0))
+   (:to (:box 8 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 14 :out 0))
+   (:to (:box 9 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 15 :out 0))
+   (:to (:box 10 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 16 :out 0))
+   (:to (:box 15 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 17 :out 0))
+   (:to (:box 5 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 19 :out 0))
+   (:to (:box 18 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 21 :out 0))
+   (:to (:box 14 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))))
