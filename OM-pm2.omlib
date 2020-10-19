@@ -19,7 +19,7 @@
   (:pathname (:directory (:relative "sources")) (:name "package"))
   (:pathname (:directory (:relative "sources")) (:name "pm2-additive"))
   (:pathname (:directory (:relative "sources")) (:name "om-functions"))
-  (:pathname (:directory (:relative "sources")) (:name "om7-preferences")))
+  (:pathname (:directory (:relative "sources")) (:name "omsharp-preferences")))
  (:symbols
   (:packages 
    (:package 

@@ -1,6 +1,6 @@
 ;============================================================================
 ; OM-pm2
-; pm2 sound analysis and synthesis for om7
+; pm2 sound analysis and synthesis for om#
 ;============================================================================
 ;
 ;   This program is free software. For information on usage 
@@ -36,7 +36,7 @@
 (add-preference :externals :pm2-path "Pm2 exec" :file 'default-pm2-path)
 (add-preference :externals :pm2-authorize "Authorize" :action 'authorize-pm2)
 
-;;; redefined form OM6/om7
+;;; redefined form OM6/om#
 (defun pm2-path () (om::real-exec-pathname (om::get-pref-value :externals :pm2-path)))
 
 ;;; works for pm2...
