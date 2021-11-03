@@ -12,7 +12,7 @@ This program is free software. It is distributed in the hope that it will be use
 _This library does NOT include pm2 sources or binaries, which must be installed separately and located in the pm2 section of OM Preferences/Libraries tab._
 
 **=> Get pm2 here: https://forum.ircam.fr/projects/detail/analysissynthesis-command-line-tools/**   
-... or point OM Preferences to the pm2 version built-in with Ircam's [AudioSculpt](https://forum.ircam.fr/projects/detail/audiosculpt/) software.  
+
 
 *************
 
