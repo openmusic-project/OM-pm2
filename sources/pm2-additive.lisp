@@ -126,7 +126,7 @@ fad:  Fade Harmonics
                    (timestr (concatenate 'string "" (if begin-t (format nil "-B~D " begin-t) "")
                                          (if end-t (format nil "-E~D " end-t) "")))
                    (fftstr (format nil "-N~D -M~D -W~D -I~D " fftsize windowsize windowtype step))
-                   (cmd (format nil "~s -v -S~s -Apar ~A ~A ~A -p1 --mode=0 -q~D -m~D -a~D -r~D ~A ~s" 
+                   (cmd (format nil "~s -v -t0 -S~s -Apar ~A ~A ~A -p1 --mode=0 -q~D -m~D -a~D -r~D ~A ~s" 
                                 (namestring PM2-path)
                                 sound
                                 timestr
@@ -266,7 +266,7 @@ fad:  Fade Harmonics
                                      (t (om::add-tmp-file (make-pm2-chord-file markers (om::tmpfile "tmpchords")))
                                         (om::tmpfile "tmpchords"))))
                    (fftstr (format nil "-N~D -M~D -W~D -I~D " fftsize windowsize windowtype step))
-                   (cmd (format nil "~s -v -S~s ~A ~A ~A -OS -p0 -q~D -m~D -a0 -r0 ~A --chords=~s ~s" 
+                   (cmd (format nil "~s -v -t0 -S~s ~A ~A ~A -OS -p0 -q~D -m~D -a0 -r0 ~A --chords=~s ~s" 
                                 (namestring PM2-Path)
                                 (namestring self)
                                 typestr
