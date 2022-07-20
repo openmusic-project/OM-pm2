@@ -30,11 +30,11 @@
 (unless (fboundp 'om::set-lib-release) (defmethod om::set-lib-release (version &optional lib) nil))
 
 
-(om::set-lib-release 1.7)
+(om::set-lib-release 1.8)
 
 (print "
 ;;;===========================================================================
-;;; OM-pm2 1.7
+;;; OM-pm2 1.8
 ;;; pm2 additive analysis/synthesis in OpenMusic
 ;;;
 ;;; (c) IRCAM 2006-2022
