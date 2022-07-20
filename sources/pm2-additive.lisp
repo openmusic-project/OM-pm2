@@ -266,7 +266,7 @@ fad:  Fade Harmonics
                                      (t (om::add-tmp-file (make-pm2-chord-file markers (om::tmpfile "tmpchords")))
                                         (om::tmpfile "tmpchords"))))
                    (fftstr (format nil "-N~D -M~D -W~D -I~D " fftsize windowsize windowtype step))
-                   (cmd (format nil "~s -v -t0 -S~s ~A ~A ~A -OS -p0 -q~D -m~D -a0 -r0 ~A --chords=~s ~s" 
+                   (cmd (format nil "~s -v -t0 -S~s ~A ~A ~A -OS -p1 --mode=0 -q~D -m~D -a0 -r0 ~A --chords=~s ~s" 
                                 (namestring PM2-Path)
                                 (namestring self)
                                 typestr
@@ -277,7 +277,7 @@ fad:  Fade Harmonics
                     ;(car smoothing-enveloppe)
                     ;(cadr smoothing-enveloppe)
                                 (if (and (stringp analysis-type) (string-equal analysis-type "averaged-spectrum")) ""
-                                  (let ((data (if (consp analysis-type) analysis-type '(20 0.0 50 1 3 0.017 50 0.009 0.5))))
+                                  (let ((data (if (consp analysis-type) analysis-type '(20 10 50 1 3 0.017 50 0.009 1))))
                                     (format nil "-Ct~D -Cf~D --devFR=~D --devFC=~D --devA=~D --devM=~D --devK=~D -L~D -l~D"
                                             (nth 5 data)
                                             (trunc (- (expt 2 (/ (nth 6 data) 1200.0)) 1) 3)
